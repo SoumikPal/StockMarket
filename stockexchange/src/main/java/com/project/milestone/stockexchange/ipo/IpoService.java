@@ -27,7 +27,7 @@ public class IpoService {
 	}
 	
 	public void deleteCompany(Long id) {
-		companyRepository.deleteById(id);
+		companyRepository.deleteByCompanyid(id);
 	}
 
 }

@@ -21,16 +21,17 @@ public class IpoController {
 	}
 
 	@RequestMapping("/ipo/{id}")
-	public List<Ipo> getTopic(@PathVariable Long id) {
+	public List<Ipo> getIpoForCompany(@PathVariable Long id) {
 		return companyService.getCompany(id);
 	}
 
 	@RequestMapping(method = RequestMethod.POST, value = "/ipo")
-	public void addTopic(@RequestBody Ipo company) {
-		companyService.addCompany(company);
+	public void addIpo(@RequestBody Ipo ipo) {
+		companyService.addCompany(ipo);
 
 	}
-	
+
+	@RequestMapping(method = RequestMethod.DELETE, value = "/ipo/{id}")
 	public void deleteCompany(@PathVariable Long id) {
 		companyService.deleteCompany(id);
 	}
