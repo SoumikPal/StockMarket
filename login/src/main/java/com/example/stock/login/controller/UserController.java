@@ -24,16 +24,35 @@ public class UserController
 	@Autowired  
 	UserService userService;
 	
-	@PostMapping("/login")
+	@GetMapping("/welcome")
+	public String Welcome()
+	{
+		return "Welcome user,Login or Signup";
+	}
+	@PostMapping("/welcomeAdmin")
+	public String WelcomeAdmin()
+	{
+		return "Welcome Admin";
+	}
+	@PostMapping("/welcomeUser")
+	public String WelcomeUser()
+	{
+		return "Welcome User";
+	}
+	@GetMapping("/login")
 	public ResponseEntity <Boolean> Login(@RequestBody User user) {
 		  Boolean isvalid = userService.checkLogin(user);
 		  return new ResponseEntity <Boolean> (isvalid, HttpStatus.OK);
 		 }
-	@PostMapping("/signup")
+	@GetMapping("/signup")
 	public ResponseEntity <Boolean> Signup(@RequestBody Signup signup) {
 		  Boolean isvalid = userService.addNew(signup);
 		  return new ResponseEntity <Boolean> (isvalid, HttpStatus.OK);
 		 }
+	
+	
+	
+	
 	
 	
 	
