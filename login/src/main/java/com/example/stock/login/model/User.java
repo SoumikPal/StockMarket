@@ -1,13 +1,24 @@
 package com.example.stock.login.model;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;  
-import javax.persistence.Entity;  
-import javax.persistence.Id;  
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 @Entity    
-@Table  
+@Table
 public class User {
-	@Id  
-	@Column  
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", confirmed=" + confirmed + ", password=" + password + ", userType=" + userType
+				+ ", userName=" + userName  + "]";
+	}
+	@Id
+	@GeneratedValue( strategy = GenerationType.AUTO )
+	@Column
 	private int id;
 	@Column
 	private int confirmed;
@@ -17,8 +28,15 @@ public class User {
 	private String userType;
 	@Column
 	private String userName;
-	@Column
-	private int contactId;
+	@OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "contact_id",referencedColumnName = "id")
+	private Contact contact;
+	public Contact getContact() {
+		return contact;
+	}
+	public void setContact(Contact contact) {
+		this.contact = contact;
+	}
 	public int getId() {
 		return id;
 	}
@@ -49,12 +67,7 @@ public class User {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-	public int getContactId() {
-		return contactId;
-	}
-	public void setContactId(int contactId) {
-		this.contactId = contactId;
-	}
+	
 
 }
 

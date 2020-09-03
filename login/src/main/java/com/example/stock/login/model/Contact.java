@@ -1,13 +1,23 @@
 package com.example.stock.login.model;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;  
-import javax.persistence.Entity;  
-import javax.persistence.Id;  
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;  
 @Entity    
 @Table  
 public class Contact {
+	@Override
+	public String toString() {
+		return "Contact [id=" + id + ", city=" + city + ", email=" + email + ", phone=" + phone + ", state=" + state
+				+ ", zip=" + zip + ", user=" + user.toString() + "]";
+	}
 	@Id  
-	@Column
+	@Column(name = "id")
+	@GeneratedValue( strategy = GenerationType.AUTO )
 	private int id;
 	@Column
 	private String city;
@@ -19,6 +29,15 @@ public class Contact {
 	private String state;
 	@Column
 	private String zip;
+	
+	@OneToOne(mappedBy = "contact",cascade = CascadeType.ALL)
+	private User user;
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
 	public int getId() {
 		return id;
 	}

@@ -17,12 +17,12 @@ DROP TABLE IF EXISTS User;
 CREATE TABLE User (
    id int(11) NOT NULL AUTO_INCREMENT,
    confirmed int(11) DEFAULT NULL,
-   password varchar(20) DEFAULT NULL,
+   password varchar(100) DEFAULT NULL,
    userType varchar(255) DEFAULT NULL,
    userName varchar(20) NOT NULL,
-   contactId int(11) DEFAULT NULL,
+   contact_id int(11) DEFAULT NULL,
   PRIMARY KEY (id),
-  FOREIGN KEY (contactId) REFERENCES Contact(id)
+  FOREIGN KEY (contact_id) REFERENCES Contact(id)
 );
 
 
@@ -31,7 +31,7 @@ INSERT INTO Contact VALUES
 	  (2,'Kolkata','xxx@gmail.com','8888888888','WB','700107');
 	  
 INSERT INTO User VALUES
-	  (1,1,'pppppppp','ADMIN','MAX','1'),
-	  (2,0,'zzzzzzzz','USER','MAXY','2');
+	  (1,1,'pppp','ROLE_ADMIN','MAX','1'),
+	  (2,1,'pppp','ROLE_USER','MAXY','2');
 	  
 	  
