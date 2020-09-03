@@ -6,5 +6,5 @@ Microservices:\
 3.Stock Exchange\
 \
 Features:\
-1.Role based authorization
+1.Role based authorization\
 2.JWT Authentication
