@@ -25,7 +25,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import static com.example.stock.login.model.Constants.TOKEN_PREFIX;
-
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class AuthenticationController {
 
@@ -39,7 +39,7 @@ public class AuthenticationController {
 	private JWTUserService userService;
     @Autowired
     private PasswordEncoder passwordEncoder;
-    @RequestMapping(value = "/signin", method = RequestMethod.POST)
+    @PostMapping("/signin")
     public ResponseEntity<?> register(@RequestBody LoginUser loginUser) throws AuthenticationException {
     	User ur=userService.getUserByUsername(loginUser.getUsername());
         final Authentication authentication = authenticationManager.authenticate(
@@ -54,7 +54,9 @@ public class AuthenticationController {
         
         SecurityContextHolder.getContext().setAuthentication(authentication);
         final String token = jwtTokenUtil.generateToken(authentication);
-        return ResponseEntity.ok(new AuthToken(token));
+        AuthToken a=new AuthToken(token);
+        loginUser.setToken(a.getToken());
+        return ResponseEntity.ok(loginUser);
     }
     @PostMapping("/signup")
 	public ResponseEntity<String> signup(@RequestBody Signup signup) {
