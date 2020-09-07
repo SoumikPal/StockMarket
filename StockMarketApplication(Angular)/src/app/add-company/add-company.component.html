@@ -1,0 +1,35 @@
+<div class="container">
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="companyName">Company Name</label>
+            <input type="text" class="form-control" name="name" [(ngModel)]="companyModel.name">
+        </div>
+        <div class="form-group">
+            <label for="brief">Brief</label>
+            <input type="text" class="form-control" name="brief" [(ngModel)]="companyModel.brief">
+        </div>
+        <div class="form-group">
+            <label for="ceo">CEO</label>
+            <input type="text" class="form-control" name="ceo" [(ngModel)]="companyModel.ceo">
+        </div>
+        <div class="form-group">
+            <label for="code">Code</label>
+            <input type="text" class="form-control" name="code" [(ngModel)]="companyModel.code">
+        </div>
+        <div class="form-group">
+            <label for="board">Board Of Directors</label>
+            <input type="text" class="form-control" name="board" [(ngModel)]="companyModel.board">
+        </div>
+
+        <div class="form-group">
+            <label for="sector">Sector</label>
+            <select class="form-control" name="sector" [(ngModel)]="companyModel.sectorname">
+              <option *ngFor="let sector of sectors">{{sector.name}}</option>
+             
+            </select>
+          </div>
+
+
+        <button class="btn btn-primary">Submit</button>
+    </form>
+</div>

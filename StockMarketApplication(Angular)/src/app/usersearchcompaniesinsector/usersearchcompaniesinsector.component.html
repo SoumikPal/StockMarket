@@ -1,0 +1,35 @@
+<div class="container">
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="sector">Sector</label>
+            <select class="form-control" name="sector" [(ngModel)]="sectorname">
+              <option *ngFor="let sector of sectors">{{sector.name}}</option>
+             
+            </select>
+          </div>
+
+          <button class="btn btn-primary">Search Companies</button>
+    </form>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Brief</th>
+                <th>Ceo</th>
+                <th>Code</th>
+                <th>Sector</th>
+                <th>Board</th>
+                
+            </tr>
+        </thead>
+        <tr *ngFor="let comp of companies">
+            <td>{{comp.id}}</td>
+            <td>{{comp.name}}</td>
+            <td>{{comp.brief}}</td>
+            <td>{{comp.ceo}}</td>
+            <td>{{comp.code}}</td>
+            <td>{{comp.sectorname}}</td>
+            <td>{{comp.board}}</td>
+    </table>
+</div>

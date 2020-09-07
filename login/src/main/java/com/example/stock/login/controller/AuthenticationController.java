@@ -41,10 +41,10 @@ public class AuthenticationController {
     private PasswordEncoder passwordEncoder;
     @PostMapping("/signin")
     public ResponseEntity<?> register(@RequestBody LoginUser loginUser) throws AuthenticationException {
-    	User ur=userService.getUserByUsername(loginUser.getUsername());
+    	User ur=userService.getUserByUsername(loginUser.getUserName());
         final Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
-                        loginUser.getUsername(),
+                        loginUser.getUserName(),
                         loginUser.getPassword()
                 )
         );
