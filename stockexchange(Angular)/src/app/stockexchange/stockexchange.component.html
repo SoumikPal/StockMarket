@@ -1,0 +1,35 @@
+<button (click)="initpage()">Stock Exchange</button>
+<div *ngIf=mainbutton>
+    <button (click)="fun1()">All Stock Exchanges</button>
+    <button (click)="fun2()">Stock Exchange by Id</button>
+    <button (click)="fun3()">Add Stock Exchange</button>
+    <div *ngIf="button1">
+        {{getall()}}
+        <div *ngIf="res2">
+            <p *ngFor="let nos of res2">
+                Exchange Id: {{nos.id}}
+            </p>
+        </div>
+        <div *ngIf="!res2">
+            <p>No Record Exists!</p>
+        </div>
+    </div>
+    <div *ngIf="button2">
+        <p>Enter Exchange id: </p>
+        <input type="text" [(ngModel)]="searchid">
+        <button (click)="getbyid()">SEARCH</button>
+        <div *ngIf="res">
+            <p>Exchange id:    {{res.id}}</p>
+            <p>Brief:          {{res.brief}}</p>
+            <p>Contact Number: {{res.contact_id}}</p>
+            <p>Remarks:        {{res.remarks}}</p>
+        </div>
+        <div *ngIf="!res">
+            <p>No Such Record Found!</p>
+        </div>
+    </div>
+    <div *ngIf="button3">
+        
+    </div>
+
+</div>

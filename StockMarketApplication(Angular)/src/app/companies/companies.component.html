@@ -1,0 +1,36 @@
+<p>companies works!</p>
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Brief</th>
+                <th>Ceo</th>
+                <th>Code</th>
+                <th>Sector</th>
+                <th>Update</th>
+                <th>Delete</th>
+                
+            </tr>
+        </thead>
+        <tr *ngFor="let comp of company">
+            <td>{{comp.id}}</td>
+            <td>{{comp.name}}</td>
+            <td>{{comp.brief}}</td>
+            <td>{{comp.ceo}}</td>
+            <td>{{comp.code}}</td>
+            <td>{{comp.sectorname}}</td>
+            
+
+       <!-- <td> <button class="btn btn-primary" (click)="updateCompany(comp)">Update</button></td>-->
+         <td><a href={{baseurl+comp.id}}> Update</a></td>
+        <td> <button class="btn btn-danger" (click)="deleteCompany(comp)">Delete</button></td>
+       
+        
+            <br>
+        </tr>
+    </table>
+</div>
+   
+

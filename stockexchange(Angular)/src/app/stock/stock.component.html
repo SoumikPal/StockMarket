@@ -1,0 +1,41 @@
+<button (click)="initpage()">Stock</button>
+<div *ngIf=mainbutton>
+    <button (click)="fun1()">Stock by Id</button>
+    <button (click)="fun2()">Stock by Company</button>
+    <button (click)="fun3()">Add Stock</button>
+
+    <div *ngIf="button1">
+        <p>Enter Stock id: </p>
+        <input type="text" [(ngModel)]="searchid">
+        <button (click)="getbyid()">SEARCH</button>
+        <div *ngIf="res">
+            <p>Stock id:    {{res.id}}</p>
+            <p>Entry date:          {{res.date}}</p>
+            <p>Company Turnover: {{res.company_turnover}}</p>
+            <p>Listed Stock Exchanges: {{res.stock_exchange}}</p>
+        </div>
+        <div *ngIf="!res">
+            <p>No Such Record Found!</p>
+        </div>
+    </div>
+
+    <div *ngIf="button2">
+        <p>Enter Company id: </p>
+        <input type="text" [(ngModel)]="searchid">
+        <button (click)="getbycompanyid()">SEARCH</button>
+        <div *ngIf="res">
+            <p>Stock id:    {{res.id}}</p>
+            <p>Entry date:          {{res.date}}</p>
+            <p>Company Turnover: {{res.company_turnover}}</p>
+            <p>Listed Stock Exchanges: {{res.stock_exchange}}</p>
+        </div>
+        <div *ngIf="!res">
+            <p>No Such Record Found!</p>
+        </div>
+    </div>
+    
+    <div *ngIf="button3">
+        
+    </div>
+
+</div>

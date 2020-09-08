@@ -1,0 +1,25 @@
+<div class="container">
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="sector">Company ID</label>
+            <select required class="form-control" name="sector" [(ngModel)]="companyid">
+              <option *ngFor="let company of companies">{{company.id}}</option>
+             
+            </select>
+          </div>
+
+        <div class="form-group">
+            <label for="brief">Remarks</label>
+            <input type="text" class="form-control" name="brief" [(ngModel)]="ipoModel.remarks">
+        </div>
+        <div class="form-group">
+            <label for="ceo">Share Price</label>
+            <input type="text" class="form-control" name="ceo" [(ngModel)]="ipoModel.share_price">
+        </div>
+        <div class="form-group">
+            <label for="code">Total Shares</label>
+            <input type="text" class="form-control" name="code" [(ngModel)]="ipoModel.total_shares">
+        </div>
+        <button class="btn btn-primary">Submit</button>
+    </form>
+</div>
