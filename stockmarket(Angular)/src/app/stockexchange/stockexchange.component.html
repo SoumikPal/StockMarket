@@ -29,7 +29,15 @@
         </div>
     </div>
     <div *ngIf="button3">
-        
+        Enter exchange Id:
+        <input type="text" [(ngModel)]="ex_id">
+        Enter exchange brief:
+        <input type="text" [(ngModel)]="ex_bf">
+        Enter exchange Contact:
+        <input type="text" [(ngModel)]="ex_ct">
+        Enter exchange Remarks:
+        <input type="text" [(ngModel)]="ex_re">
+        <button (click)="additem()">ENTER</button>
     </div>
 
 </div>

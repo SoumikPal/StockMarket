@@ -35,7 +35,19 @@
     </div>
     
     <div *ngIf="button3">
-        
+        Enter Stock Id:
+        <input type="text" [(ngModel)]="s_id">
+        Enter opening price:
+        <input type="text" [(ngModel)]="s_op">
+        Enter closing price:
+        <input type="text" [(ngModel)]="s_cp">
+        Enter company turnover:
+        <input type="text" [(ngModel)]="s_to">
+        Enter company Id:
+        <input type="text" [(ngModel)]="s_cid">
+        Enter Exchanges(Separated by comma):
+        <input type="text" [(ngModel)]="s_ex">
+        <button (click)="additem()">ENTER</button>
     </div>
 
 </div>
