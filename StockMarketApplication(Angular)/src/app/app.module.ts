@@ -16,9 +16,6 @@ import { ViewSectorComponent } from './view-sector/view-sector.component';
 import { ViewcompaniesuserComponent } from './viewcompaniesuser/viewcompaniesuser.component';
 import { ViewipouserComponent } from './viewipouser/viewipouser.component';
 import { UsersearchcompaniesinsectorComponent } from './usersearchcompaniesinsector/usersearchcompaniesinsector.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-import { LogoutComponent } from './logout/logout.component';
 
 
 @NgModule({
@@ -34,9 +31,6 @@ import { LogoutComponent } from './logout/logout.component';
     ViewcompaniesuserComponent,
     ViewipouserComponent,
     UsersearchcompaniesinsectorComponent,
-    LoginComponent,
-    RegisterComponent,
-    LogoutComponent,
   
   ],
   imports: [

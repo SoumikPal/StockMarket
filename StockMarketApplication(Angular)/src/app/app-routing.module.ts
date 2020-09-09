@@ -11,9 +11,7 @@ import { ViewSectorComponent } from './view-sector/view-sector.component';
 import { ViewcompaniesuserComponent } from './viewcompaniesuser/viewcompaniesuser.component';
 import { ViewipouserComponent } from './viewipouser/viewipouser.component';
 import { UsersearchcompaniesinsectorComponent } from './usersearchcompaniesinsector/usersearchcompaniesinsector.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-import { LogoutComponent } from './logout/logout.component';
+
 
 const routes: Routes = [
   {
@@ -58,20 +56,7 @@ const routes: Routes = [
   {
     path:'user/searchcompany',
     component:UsersearchcompaniesinsectorComponent
-  },
-  {
-    path: 'login',
-    component: LoginComponent
-   },
-   {
-    path: 'logout',
-     component: LogoutComponent
-  },
-  {
-    path: 'register',
-    component: RegisterComponent
   }
-  
  
 ];
 
