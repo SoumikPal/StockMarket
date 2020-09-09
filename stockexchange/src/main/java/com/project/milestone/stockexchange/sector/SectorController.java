@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,27 +16,26 @@ public class SectorController {
 	@Autowired
 	private SectorService sectorService;
 
-	
-	@RequestMapping("/company/{id}/sector")
-	public List<Sector> getSectorOfCompany(@PathVariable Long id) {
-		return sectorService.getSectorOfCompany(id);
+	@CrossOrigin(origins = "http://localhost:4200")
+	@RequestMapping("/company/sector")
+	public List<Sector> getSector() {
+		return sectorService.getSectors();
 	}
-
-	@RequestMapping(method = RequestMethod.POST, value = "/company/{id}/sector")
-	public void addSectorOfCompany(@RequestBody Sector sector,@PathVariable Long id) {
-		sector.setCompanyId(id);
+	
+	@CrossOrigin(origins = "http://localhost:4200")
+	@RequestMapping(method = RequestMethod.POST, value = "/company/sector")
+	public void addSectorOfCompany(@RequestBody Sector sector) {
+		//sector.setCompanyId(id);
 		sectorService.addSectorOfCompany(sector);
 
 	}
-	@RequestMapping(method=RequestMethod.PUT,value="/company/{id}/sector")
-	public void updateCompanySector(@RequestBody Sector sector,@PathVariable Long id) {
-		sector.setCompanyId(id);
-		sectorService.updateSectorOfCompany(sector);
+	
+	@CrossOrigin(origins = "http://localhost:4200")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/company/sector/{id}")
+	public void deleteSector(@PathVariable Long id) {
+		sectorService.deleteSectorById(id);
 	}
-	@RequestMapping("/sector/{sectorname}")
-	public List<Sector> getCompanyInSector(@PathVariable String sectorname) {
-		return sectorService.getCompanyInSector(sectorname);
-		
-	}
+	
+	
 
 }

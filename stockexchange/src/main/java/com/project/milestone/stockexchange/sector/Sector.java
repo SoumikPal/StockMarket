@@ -1,30 +1,34 @@
 package com.project.milestone.stockexchange.sector;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Sector {
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	private String brief;
 	private String name;
-	private Long companyId;
 	
-	public Long getCompanyId() {
-		return companyId;
-	}
+	
 
-	public void setCompanyId(Long companyId) {
-		this.companyId = companyId;
-	}
+	
 
 	public Sector() {
 		
 	}
 
-	public Sector(Long id, String brief, String name) {
+	public Sector(String brief, String name) {
+		super();
+		this.brief = brief;
+		this.name = name;
+	}
+
+	public Sector(Long id,String brief, String name) {
 		super();
 		this.id = id;
 		this.brief = brief;

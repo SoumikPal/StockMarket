@@ -29,5 +29,8 @@ public class CompanyService {
 	public void deleteCompany(Long id) {
 		companyRepository.deleteById(id);
 	}
+	public List<Company>getCompaniesInSector(String name){
+		return companyRepository.findBySectorname(name);
+	}
 
 }

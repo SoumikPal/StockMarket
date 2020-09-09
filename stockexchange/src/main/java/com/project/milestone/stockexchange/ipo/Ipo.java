@@ -1,12 +1,15 @@
 package com.project.milestone.stockexchange.ipo;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Ipo {
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	private String remarks;
 	private double share_price;
@@ -17,9 +20,9 @@ public class Ipo {
 
 	}
 
-	public Ipo(Long id, String remarks, double share_price, int total_shares, Long comapny_id) {
+	public Ipo(String remarks, double share_price, int total_shares, Long comapny_id) {
 		super();
-		this.id = id;
+		//this.id = id;
 		this.remarks = remarks;
 		this.share_price = share_price;
 		this.total_shares = total_shares;
