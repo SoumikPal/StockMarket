@@ -1,0 +1,43 @@
+
+<div class="container">
+<h1>Welcome To Stock Market</h1>
+
+ <nav >
+      <div class="navbar-nav">   
+<a *ngIf="user===null" routerLink="/login">Login</a>
+<a *ngIf="user===null" routerLink="/register">Register</a>
+<a *ngIf="user" (click)="logout()" >Logout</a>
+     </div>
+<div class="navbar-nav" *ngIf="user">
+<div>
+ <a *ngIf="user.role === 'ADMIN'" routerLink="/admin/addcompany">Add Company</a>
+  <a *ngIf="user.role === 'ADMIN'" routerLink="/admin/viewcompany">View Company</a>
+  <a *ngIf="user.role === 'ADMIN'" routerLink="/admin/viewipo">View Ipo</a>
+  <a *ngIf="user.role === 'ADMIN'" routerLink="/admin/addipo">Add Ipo</a>
+ <a *ngIf="user.role === 'ADMIN'" routerLink="/admin/addsector">Add Sector</a>
+ <a *ngIf="user.role === 'ADMIN'" routerLink="/admin/viewsector">View Sector</a>
+<a *ngIf="user.role === 'ADMIN'" routerLink="/admin/stockexchange">StockExchange</a>
+<a *ngIf="user.role === 'ADMIN'" routerLink="/admin/stock">Stock</a>
+
+
+ </div>
+ <div>
+ <a routerLink="/profile">Profile</a>
+ <a routerLink="/user/viewcompany">View Company User</a>
+ <a routerLink="/user/viewipo">View IPO User</a>
+ <a routerLink="/user/searchcompany">Search Company In Sector</a>
+<a routerLink="/user/stockexchange">StockExchange</a>
+<a routerLink="/user/stock">Stock</a>
+
+ </div>
+ </div>
+ </nav>
+
+ 
+ 
+ 
+
+
+<router-outlet></router-outlet>
+</div>
+

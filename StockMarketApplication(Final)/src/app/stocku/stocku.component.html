@@ -1,0 +1,67 @@
+<button (click)="initpage()">Stock</button>
+<div *ngIf=mainbutton>
+    <button (click)="fun1()">Stock by Id</button>
+    <button (click)="fun2()">Stock by Company</button>
+    <button (click)="fun4()">Stock by Exchange</button>
+
+    <div *ngIf="button1">
+        <p>Enter Stock id: </p>
+        <input type="text" [(ngModel)]="searchid1">
+        <button (click)="getbyid()">SEARCH</button>
+        <div *ngIf="res">
+            <p>Stock id: {{res.id}}</p>
+            <p>Company Turnover: {{res.company_turnover}}</p>
+            <p>Listed Stock Exchanges: {{res.stock_exchange}}</p>
+        </div>
+        <div *ngIf="!res">
+            <p>No Such Record Found!</p>
+        </div>
+    </div>
+
+    <div *ngIf="button2">
+        <p>Enter Company id: </p>
+        <input type="text" [(ngModel)]="searchid2">
+        <button (click)="getbycompanyid()">SEARCH</button>
+        <div *ngIf="res2">
+            <div *ngFor="let nos of res2">
+                Stock Id: {{nos.id}}
+                <p>Listed Stock Exchanges: </p>
+                <p *ngFor="let nok of nos.stock_exchange"> {{nok}} </p>
+            </div>
+        </div>
+        <div *ngIf="!res2">
+            <p>No Such Record Found!</p>
+        </div>
+    </div>
+
+    <div *ngIf="button3">
+        <p>Enter Stock Id:
+            <input type="text" [(ngModel)]="s_id"></p>
+        <p>Enter opening price:
+            <input type="text" [(ngModel)]="s_op"></p>
+        <p>Enter closing price:
+            <input type="text" [(ngModel)]="s_cp"></p>
+        <p> Enter company turnover:
+            <input type="text" [(ngModel)]="s_to"></p>
+        <p>Enter company Id:
+            <input type="text" [(ngModel)]="s_cid"></p>
+        <p>Enter Exchanges(Separated by comma):
+            <input type="text" [(ngModel)]="s_ex"></p>
+        <button (click)="additem()">ENTER</button>
+    </div>
+
+    <div *ngIf="button4">
+        <p>Enter Exhange id: </p>
+        <input type="text" [(ngModel)]="searchid4">
+        <button (click)="getbyexchange()">SEARCH</button>
+        <div *ngIf="res3">
+            <div *ngFor="let nos of res3">
+                Stock Id: {{nos.id}}
+            </div>
+        </div>
+        <div *ngIf="!res3">
+            <p>No Such Record Found!</p>
+        </div>
+    </div>
+
+</div>

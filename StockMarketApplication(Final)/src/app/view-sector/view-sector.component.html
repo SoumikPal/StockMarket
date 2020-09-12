@@ -1,0 +1,18 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Brief</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let sector of sectors">
+            <td>{{sector.id}}</td>
+            <td>{{sector.name}}</td>
+            <td>{{sector.brief}}</td>
+           <td> <button class="btn btn-danger" (click)="deleteSector(sector)">Delete</button></td>    
+        </tr>
+    </tbody>
+</table>

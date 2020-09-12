@@ -1,0 +1,13 @@
+<div class="container">
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="name">Sector Name</label>
+            <input type="text" class="form-control" name="name" [(ngModel)]="sectorModel.name">
+        </div>
+        <div class="form-group">
+            <label for="brief">Sector Brief</label>
+            <input type="text" class="form-control" name="brief" [(ngModel)]="sectorModel.brief">
+        </div>
+        <button class="btn btn-primary">Add</button>
+    </form>
+</div>
