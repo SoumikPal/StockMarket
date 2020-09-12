@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @RestController
 public class Stock_exchange_handler {
-	
+	private boolean invoke=false;
 	@Autowired
 	private Stock_exchange_service ses;
 	
@@ -21,9 +21,16 @@ public class Stock_exchange_handler {
 	 * localhost:8080/stockexchange
 	 * @return 
 	 */
-	
+	private void initialize() {
+		if(!invoke) {
+			ses.addStockExchange(new Stock_exchange(1,"Bombay Stock Exchange","A++", 224501));
+			ses.addStockExchange(new Stock_exchange(2,"National Stock Exchange","A++", 223429));
+			invoke=true;
+		}
+	}
 	@RequestMapping("/stock_exchange")
 	public List<Stock_exchange> getStockExchanges() {
+		initialize();
 		return ses.getStockExchanges();
 	}
 	/**
@@ -33,6 +40,7 @@ public class Stock_exchange_handler {
 	 */
 	@RequestMapping(method=RequestMethod.POST,value="/stock_exchange")
 	public void addStockExchange(@RequestBody Stock_exchange se) {
+		initialize();
 		ses.addStockExchange(se);
 	}
 	/**
