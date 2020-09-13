@@ -9,4 +9,7 @@ Features:\
 1.Role based authorization\
 2.JWT Authentication\
 
-Frontend using Angular
+Final Froentend:\
+StockMarketApplication(Final)\
+
+JenkinsFile\
