@@ -13,3 +13,5 @@ Final Froentend:\
 StockMarketApplication(Final)\
 
 JenkinsFile\
+
+Login microservice has been dockerized
