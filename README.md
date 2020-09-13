@@ -9,4 +9,7 @@ Features:\
 1.Role based authorization\
 2.JWT Authentication\
 
-Final Froentend:StockMarketApplication(Final)
+Final Froentend:\
+StockMarketApplication(Final)\
+
+JenkinsFile\
