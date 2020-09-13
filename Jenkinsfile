@@ -11,9 +11,27 @@ pipeline {
 	            
 	        }
         }
-        stage('Build') { 
+        stage('Building FIrst MicroService') { 
             steps {
                 dir('login')
+	            {
+	                sh 'mvn  clean compile'
+	               
+	            } 
+            }
+        }
+        stage('Building 2nd MicroService') { 
+            steps {
+                dir('stockexchange')
+	            {
+	                sh 'mvn  clean compile'
+	               
+	            } 
+            }
+        }
+        stage('Building 3rd MicroService') { 
+            steps {
+                dir('stockmarket')
 	            {
 	                sh 'mvn  clean compile'
 	               
